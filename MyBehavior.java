@@ -19,10 +19,12 @@ public class MyBehavior extends CoordinatorLayout.Behavior<Button> {
         DisplayMetrics display = context.getResources().getDisplayMetrics();
         width = display.widthPixels;
     }
-
+    /**
+    * 判断child的布局是否依赖dependency
+    */
     @Override
     public boolean layoutDependsOn(CoordinatorLayout parent, Button child, View dependency) {
-        //如果dependency是TempView的实例，说明它就是我们所需要的Dependency
+        //如果返回true,也就是说dependency是TempView的实例，说明它就是我们所需要的Dependency
         return dependency instanceof TempView;
     }
 
